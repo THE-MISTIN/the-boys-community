@@ -1,0 +1,363 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+nav,
+.hero,
+.games-section,
+.gallery-section,
+.discord-section,
+footer{
+    position:relative;
+    z-index:5;
+}
+
+body{
+    position:relative;
+    font-family:'Orbitron', sans-serif;
+    background:black;
+    color:white;
+    overflow-x:hidden;
+}
+
+/* ANIMATED BACKGROUND */
+
+.smoke{
+    position:fixed;
+    width:100%;
+    height:100%;
+    background:url('images/demon-bg.jpg');
+    background-size:cover;
+    background-position:center;
+    opacity:0.18;
+    animation:smokeMove 20s infinite alternate ease-in-out;
+    z-index:-1;
+}
+
+@keyframes smokeMove{
+    from{
+        transform:scale(1) translateY(0px);
+    }
+
+    to{
+        transform:scale(1.1) translateY(-20px);
+    }
+}
+
+/* NAVBAR */
+
+nav{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:20px 50px;
+    background:rgba(0,0,0,0.7);
+    border-bottom:2px solid red;
+    position:sticky;
+    top:0;
+    backdrop-filter:blur(10px);
+    z-index:1000;
+}
+
+.logo{
+    color:red;
+    font-size:2rem;
+    font-weight:bold;
+    text-shadow:0 0 15px red;
+}
+
+nav ul{
+    display:flex;
+    list-style:none;
+}
+
+nav ul li{
+    margin-left:30px;
+}
+
+nav ul li a{
+    color:white;
+    text-decoration:none;
+    transition:0.3s;
+}
+
+nav ul li a:hover{
+    color:red;
+    text-shadow:0 0 10px red;
+}
+
+/* HERO */
+
+.hero{
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    padding:20px;
+}
+
+.hero-content{
+    background:rgba(0,0,0,0.65);
+    padding:60px;
+    border:2px solid red;
+    box-shadow:0 0 40px red;
+    border-radius:20px;
+    animation:glow 2s infinite alternate;
+}
+
+@keyframes glow{
+    from{
+        box-shadow:0 0 20px red;
+    }
+
+    to{
+        box-shadow:0 0 50px red;
+    }
+}
+
+.hero h1{
+    font-size:5rem;
+    color:red;
+    text-shadow:0 0 25px red;
+}
+
+.hero h2{
+    font-size:2rem;
+    margin-bottom:20px;
+}
+
+.hero p{
+    max-width:600px;
+    margin:auto;
+    color:#ccc;
+    line-height:1.6;
+}
+/* HERO BUTTONS */
+
+.hero-buttons{
+    margin-top:30px;
+    display:flex;
+    justify-content:center;
+    gap:20px;
+    flex-wrap:wrap;
+}
+
+.hero-buttons button{
+    padding:15px 35px;
+    border:none;
+    border-radius:12px;
+    font-size:1rem;
+    font-weight:bold;
+    cursor:pointer;
+    transition:0.4s;
+    font-family:'Orbitron', sans-serif;
+}
+
+/* DISCORD BUTTON */
+
+.discord-btn{
+    background:red;
+    color:white;
+    box-shadow:0 0 15px red;
+}
+
+.discord-btn:hover{
+    transform:scale(1.1);
+    box-shadow:0 0 35px red;
+}
+
+/* SERVER BUTTON */
+
+.server-btn{
+    background:black;
+    color:red;
+    border:2px solid red;
+    box-shadow:0 0 15px red;
+}
+
+.server-btn:hover{
+    background:red;
+    color:white;
+    transform:scale(1.1);
+    box-shadow:0 0 35px red;
+}
+/* GAMES */
+
+/* GAME LINKS */
+
+.game-link{
+    text-decoration:none;
+    color:white;
+}
+
+.games-section{
+    padding:100px 50px;
+}
+
+.section-title{
+    text-align:center;
+    color:red;
+    font-size:3rem;
+    margin-bottom:60px;
+    text-shadow:0 0 15px red;
+}
+
+.games-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:40px;
+}
+
+.game-card{
+    background:#111;
+    border:2px solid red;
+    border-radius:20px;
+    overflow:hidden;
+    transition:0.4s;
+    box-shadow:0 0 15px rgba(255,0,0,0.5);
+}
+
+.game-card:hover{
+    transform:translateY(-10px) scale(1.03);
+    box-shadow:0 0 30px red;
+}
+
+.game-card img{
+    width:100%;
+    height:220px;
+    object-fit:cover;
+}
+
+.game-card h3{
+    color:red;
+    padding:20px 20px 10px;
+}
+
+.game-card p{
+    padding:0 20px 25px;
+    color:#ccc;
+}
+
+/* FOOTER */
+
+footer{
+    text-align:center;
+    padding:40px;
+    border-top:2px solid red;
+    color:#aaa;
+}
+
+/* MOBILE */
+
+@media(max-width:768px){
+
+    .hero h1{
+        font-size:3rem;
+    }
+
+    .hero-content{
+        padding:30px;
+    }
+
+    nav{
+        flex-direction:column;
+    }
+
+    nav ul{
+        margin-top:20px;
+    }
+
+    nav ul li{
+        margin:0 10px;
+    }
+
+}
+/* GALLERY SECTION */
+
+.gallery-section{
+    padding:100px 40px;
+}
+
+.gallery-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+    gap:25px;
+    margin-top:50px;
+}
+
+.gallery-item{
+    overflow:hidden;
+    border-radius:20px;
+    border:2px solid red;
+    box-shadow:0 0 20px rgba(255,0,0,0.4);
+    transition:0.4s;
+}
+
+.gallery-item:hover{
+    transform:scale(1.03);
+    box-shadow:0 0 40px red;
+}
+
+.gallery-item img{
+    width:100%;
+    height:250px;
+    object-fit:cover;
+    transition:0.4s;
+}
+
+.gallery-item:hover img{
+    transform:scale(1.1);
+}
+/* REAL FOG EFFECTS */
+
+.fog{
+    position:fixed;
+    top:0;
+    left:0;
+    width:200%;
+    height:100%;
+    pointer-events:none;
+    z-index:1;
+    opacity:0.18;
+}
+
+.fog1{
+    background:url('images/fog1.png') repeat-x;
+    background-size:cover;
+    animation:fogMove1 60s linear infinite;
+}
+
+.fog2{
+    background:url('images/fog2.png') repeat-x;
+    background-size:cover;
+    animation:fogMove2 90s linear infinite;
+    opacity:0.12;
+}
+
+/* FOG ANIMATIONS */
+
+@keyframes fogMove1{
+
+    0%{
+        transform:translateX(0);
+    }
+
+    100%{
+        transform:translateX(-50%);
+    }
+
+}
+
+@keyframes fogMove2{
+
+    0%{
+        transform:translateX(-25%);
+    }
+
+    100%{
+        transform:translateX(-75%);
+    }
+
+}
